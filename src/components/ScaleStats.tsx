@@ -1,5 +1,6 @@
 import { Quotes } from "@phosphor-icons/react/dist/ssr";
 import { scaleStats, topMessage } from "@/lib/site";
+import CountUp from "./CountUp";
 import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
 
@@ -15,21 +16,26 @@ export default function ScaleStats() {
         />
 
         <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4">
-          {scaleStats.map((stat, i) => (
-            <Reveal key={stat.label} delay={i * 70}>
-              <div className="text-center">
-                <dd className="tnum text-4xl font-bold tracking-[-0.03em] text-brand-600 sm:text-5xl">
-                  {stat.value}
-                  <span className="ml-1 align-baseline text-lg font-semibold text-brand-500 sm:text-xl">
-                    {stat.unit}
-                  </span>
-                </dd>
-                <dt className="mt-3 text-sm font-medium text-slate-600">
-                  {stat.label}
-                </dt>
-              </div>
-            </Reveal>
-          ))}
+          {scaleStats.map((stat, i) => {
+            const numeric = Number(stat.value.replace(/,/g, ""));
+            return (
+              <Reveal key={stat.label} delay={i * 70}>
+                <div className="text-center">
+                  <dd className="tnum text-4xl font-bold tracking-[-0.03em] text-brand-600 sm:text-5xl">
+                    <CountUp value={numeric} />
+                    {/* 카운트업은 장식적 모션이므로 aria-hidden 처리하고, 최종값은 여기서 정확히 전달합니다. */}
+                    <span className="sr-only">{stat.value}</span>
+                    <span className="ml-1 align-baseline text-lg font-semibold text-brand-500 sm:text-xl">
+                      {stat.unit}
+                    </span>
+                  </dd>
+                  <dt className="mt-3 text-sm font-medium text-slate-600">
+                    {stat.label}
+                  </dt>
+                </div>
+              </Reveal>
+            );
+          })}
         </dl>
 
         <Reveal delay={140}>
