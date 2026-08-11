@@ -37,19 +37,19 @@ export default function Hero() {
 
             <Reveal delay={80}>
               <h1 className="mt-6 text-[2.5rem] leading-[1.15] font-bold tracking-[-0.02em] text-white sm:text-[3.25rem] xl:text-[3.75rem]">
-                컬러 위에
+                기능성 도료의 혁신
                 <br />
                 <span className="bg-[linear-gradient(90deg,#ffffff_0%,#b8d0fb_45%,#5ad8f7_100%)] bg-clip-text text-transparent">
-                  기능을 더합니다
+                  위아케미칼
                 </span>
               </h1>
             </Reveal>
 
             <Reveal delay={160}>
               <p className="mt-5 max-w-xl text-base leading-[1.75] text-brand-100/85 sm:text-lg">
-                위아케미칼은 휴대폰 케이스, 화장품, 가전제품에 적용되는 친환경
-                기능성 플라스틱 도료를 개발하고 생산합니다. 조색부터 양산까지,
-                색이 흔들리지 않습니다.
+                정확한 조색, 일관된 품질, 맞춤형 기능성 도료.
+                <br />
+                산업 제품의 완성도를 높이는 기술을 제공합니다.
               </p>
             </Reveal>
 
