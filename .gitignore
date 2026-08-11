@@ -1,0 +1,12 @@
+node_modules/
+.next/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
+.env*.local
+.DS_Store
+
+# Claude Code 로컬 도구 설정 (프로젝트 코드 아님)
+.claude/skills/
+.claude/settings.local.json

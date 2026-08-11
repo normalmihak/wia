@@ -1,0 +1,185 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css");
+@import "tailwindcss";
+
+@theme {
+  /* ---- Brand: WIA CHEMICAL blue ---------------------------------- */
+  --color-ink-950: #04091a;
+  --color-ink-900: #071227;
+  --color-ink-800: #0b1c3d;
+  --color-ink-700: #102a5c;
+
+  --color-brand-900: #0d2560;
+  --color-brand-800: #143278;
+  --color-brand-700: #17398c;
+  --color-brand-600: #1b4298; /* logo blue */
+  --color-brand-500: #2456bd;
+  --color-brand-400: #3b79e5;
+  --color-brand-300: #7aa8f5;
+  --color-brand-200: #b8d0fb;
+  --color-brand-100: #dce8fd;
+  --color-brand-50: #f0f5ff;
+
+  --color-aqua-400: #22c2f0;
+  --color-aqua-300: #5ad8f7;
+
+  --color-surface: #ffffff;
+  --color-surface-muted: #f5f8ff;
+
+  /* ---- Typography ------------------------------------------------ */
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic",
+    system-ui, sans-serif;
+
+  /* ---- Motion ---------------------------------------------------- */
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* keep sticky nav from covering anchor targets */
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    background: var(--color-surface);
+    color: var(--color-ink-900);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    word-break: keep-all; /* Korean line breaking */
+  }
+
+  /* Visible focus for keyboard users on every interactive element */
+  :where(a, button, input, textarea, select, [tabindex]):focus-visible {
+    outline: 3px solid var(--color-brand-400);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: var(--color-brand-600);
+    color: #fff;
+  }
+}
+
+@layer utilities {
+  /* Tabular figures so metric rows never jitter */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+
+  .container-x {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-x {
+      padding-inline: 2rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container-x {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  /* Scroll reveal — transform/opacity only, no layout thrash.
+     Gated behind `scripting: enabled` so that without JavaScript (where the
+     IntersectionObserver never flips `data-shown`) every section renders
+     visible instead of blank. Browsers without the media feature simply skip
+     the animation, which fails safe the same way. */
+  @media (scripting: enabled) {
+    .reveal {
+      opacity: 0;
+      transform: translate3d(0, 24px, 0);
+      transition:
+        opacity 620ms var(--ease-out-quint),
+        transform 620ms var(--ease-out-quint);
+      transition-delay: var(--reveal-delay, 0ms);
+      will-change: opacity, transform;
+    }
+
+    .reveal[data-shown="true"] {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /* Infinite logo marquee — transform only, so it stays off the main thread */
+  .marquee {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 8%,
+      #000 92%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 8%,
+      #000 92%,
+      transparent 100%
+    );
+  }
+
+  .marquee-track {
+    animation: marquee-slide 42s linear infinite;
+    will-change: transform;
+  }
+
+  .marquee:hover .marquee-track,
+  .marquee:focus-within .marquee-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee-slide {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  .noise {
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.09) 1px,
+      transparent 1px
+    );
+    background-size: 4px 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Motion is decorative here — hold the logos still instead of collapsing
+     the animation to 0.01ms, which would snap the track to its end state. */
+  .marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
