@@ -15,7 +15,14 @@ export default function Solutions() {
           id="solutions-heading"
           eyebrow="PRODUCTS &amp; SOLUTIONS"
           title="소재별, 용도별 맞춤 도료 설계"
-          lead="하도 칼라부터 상도 질감·우레탄·UV까지, 제품이 놓이는 환경에 맞춰 도료 구성을 다르게 가져갑니다. 아래는 분야별 대표 구성입니다."
+          lead={
+            <>
+              하도 칼라부터 상도 질감·우레탄·UV까지, 제품이 놓이는 환경에 맞춰
+              도료 구성을 다르게 가져갑니다.
+              <br />
+              아래는 분야별 대표 구성입니다.
+            </>
+          }
         />
 
         <div className="mt-10 space-y-6">

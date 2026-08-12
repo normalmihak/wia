@@ -26,7 +26,14 @@ export default function Performance() {
           tone="dark"
           eyebrow="QUALITY IN NUMBERS"
           title="정밀도는 주장이 아니라 측정값입니다"
-          lead="2020년 고객만족도 조사에서 경쟁 4개사와 나란히 평가받은 결과입니다. 조색 정확도와 로트별 재현성 두 항목 모두에서 앞섰습니다."
+          lead={
+            <>
+              2020년 고객만족도 조사에서 경쟁 4개사와 나란히 평가받은
+              결과입니다.
+              <br />
+              조색 정확도와 로트별 재현성 두 항목 모두에서 앞섰습니다.
+            </>
+          }
         />
 
         <ul className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-2">

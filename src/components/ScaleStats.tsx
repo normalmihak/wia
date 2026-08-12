@@ -12,7 +12,14 @@ export default function ScaleStats() {
           id="scale-heading"
           eyebrow="TRACK RECORD"
           title="앞서가는 제조사가 믿고 선택한 위아케미칼"
-          lead="2015년 법인 설립 이후 휴대폰과 화장품, 가전 분야 제조사와 함께 일해 왔습니다. 그동안 쌓인 결과를 숫자로 정리했습니다."
+          lead={
+            <>
+              2015년 법인 설립 이후 휴대폰과 화장품, 가전 분야 제조사와 함께
+              일해 왔습니다.
+              <br />
+              그동안 쌓인 결과를 숫자로 정리했습니다.
+            </>
+          }
         />
 
         <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4">

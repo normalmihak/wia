@@ -21,7 +21,14 @@ export default function Strengths() {
           id="strengths-heading"
           eyebrow="OUR STRENGTHS"
           title="색이 틀어지면 라인이 멈춥니다"
-          lead="양산에서 색이 어긋나면 전수 검사와 재작업, 납기 지연으로 이어집니다. 위아케미칼은 조색 단계에서 변수를 잡아 그 리스크를 줄입니다."
+          lead={
+            <>
+              양산에서 색이 어긋나면 전수 검사와 재작업, 납기 지연으로
+              이어집니다.
+              <br />
+              위아케미칼은 조색 단계에서 변수를 잡아 그 리스크를 줄입니다.
+            </>
+          }
         />
 
         <ul className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">

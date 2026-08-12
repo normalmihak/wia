@@ -14,7 +14,13 @@ export default function Process() {
           id="process-heading"
           eyebrow="HOW WE WORK"
           title="문의부터 양산까지 네 단계"
-          lead="처음 연락하실 때는 소재와 도장라인 조건만 알려주시면 됩니다. 나머지는 담당 기술진이 확인한 뒤 배합 방향을 제안드립니다."
+          lead={
+            <>
+              처음 연락하실 때는 소재와 도장라인 조건만 알려주시면 됩니다.
+              <br />
+              나머지는 담당 기술진이 확인한 뒤 배합 방향을 제안드립니다.
+            </>
+          }
         />
 
         <ol className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">

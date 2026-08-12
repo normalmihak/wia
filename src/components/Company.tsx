@@ -1,5 +1,5 @@
 import { MapPin, Buildings } from "@phosphor-icons/react/dist/ssr";
-import { company, culture } from "@/lib/site";
+import { company } from "@/lib/site";
 import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
 
@@ -24,7 +24,13 @@ export default function Company() {
           id="company-heading"
           eyebrow="COMPANY"
           title="회사 소개"
-          lead="안산 디자인센터에서 개발하고 화성 생산공장에서 양산합니다. 두 거점이 조색부터 출하까지 전 과정을 함께 관리합니다."
+          lead={
+            <>
+              안산 디자인센터에서 개발하고 화성 생산공장에서 양산합니다.
+              <br />
+              두 거점이 조색부터 출하까지 전 과정을 함께 관리합니다.
+            </>
+          }
         />
 
         <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-5">
@@ -82,33 +88,6 @@ export default function Company() {
             </div>
           </Reveal>
         </div>
-
-        {/* 기업 문화 */}
-        <Reveal delay={60}>
-          <h3 className="mt-20 text-center text-xl font-bold tracking-[-0.01em] text-ink-900">
-            기업 문화
-          </h3>
-        </Reveal>
-
-        <ul className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-3">
-          {culture.map((line, i) => (
-            <li key={line}>
-              <Reveal delay={i * 70} className="h-full">
-                <div className="flex h-full gap-4 rounded-2xl border border-slate-200/80 bg-surface-muted p-6">
-                  <span
-                    aria-hidden
-                    className="tnum text-sm font-bold text-brand-400"
-                  >
-                    0{i + 1}
-                  </span>
-                  <p className="text-[0.9375rem] leading-[1.75] font-medium text-ink-800">
-                    {line}
-                  </p>
-                </div>
-              </Reveal>
-            </li>
-          ))}
-        </ul>
       </div>
     </section>
   );

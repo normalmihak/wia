@@ -15,7 +15,13 @@ export default function Cases() {
           id="cases-heading"
           eyebrow="CASE HISTORY"
           title="고객사 개발 이력 및 적용 사례"
-          lead="휴대폰·화장품·가전 분야에서 실제 양산 라인에 올라간 배합입니다. 적용 부위와 도료 구성을 그대로 정리했습니다."
+          lead={
+            <>
+              휴대폰·화장품·가전 분야에서 실제 양산 라인에 올라간 배합입니다.
+              <br />
+              적용 부위와 도료 구성을 그대로 정리했습니다.
+            </>
+          }
         />
 
         <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

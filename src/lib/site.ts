@@ -28,7 +28,7 @@ export const company = {
     {
       label: "화성 생산공장",
       role: "생산 · 품질관리",
-      address: "경기도 화성시 장안면 장안공단 7길 28",
+      address: "경기도 화성시 만세구 마도면 화성로 687",
     },
   ],
 } as const;
@@ -204,12 +204,6 @@ export const cases = [
   { client: "에이알", part: "미용기기", paint: "하도 칼라 · 상도 우레탄" },
   { client: "언일전자", part: "웨어러블 케이스", paint: "하도 칼라 · 상도 우레탄" },
   { client: "리어스", part: "핸드폰 투명 케이스", paint: "하도 프라이머 · 상도 내오염용 WIA-SF1100M" },
-] as const;
-
-export const culture = [
-  "멋진 동료들이 함께 일하며 서로의 성장을 돕는 회사",
-  "열정을 가진 인재, 자율과 책임의 문화, 맥락으로 소통하는 회사",
-  "탁월함을 통해 지구환경 보존에 긍정적 가치를 제공하는 회사",
 ] as const;
 
 export const topMessage = {
