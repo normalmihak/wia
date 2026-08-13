@@ -23,8 +23,11 @@ export const siteUrl = (
  * 값을 채우면 <head>에 인증 메타태그가 자동으로 들어갑니다.
  */
 export const searchVerification = {
+  // 구글은 도메인 속성이라 DNS TXT 레코드로 확인했고, 이 태그는 예비로 둡니다.
   google: "eUC5-tI1s8egYo4DUWdAwIznqRDRa9NjpL7IYHpjv3A",
-  naver: "39fa519cc78181db662eb8924aa45314d9b4aba2",
+  // 네이버는 등록한 사이트 주소별로 토큰이 다릅니다.
+  // 이 값은 https://www.wiachemical.com/ 기준입니다.
+  naver: "e30195ee9377e1f142242dabe3acbf4d304f050b",
 } as const;
 
 export const company = {
