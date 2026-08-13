@@ -4,6 +4,29 @@
  * 내용 수정은 이 파일만 고치면 전체 페이지에 반영됩니다.
  */
 
+/**
+ * 사이트 정식 주소. canonical·OG·사이트맵의 절대 URL 기준이 됩니다.
+ * Vercel에서는 프로덕션 도메인이 자동으로 잡히고, 자체 도메인을 연결하면
+ * 환경변수 NEXT_PUBLIC_SITE_URL 을 지정해 덮어씁니다.
+ */
+export const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000")
+).replace(/\/+$/, "");
+
+/**
+ * 검색엔진 소유 확인 코드.
+ * - google: Google Search Console > 소유권 확인 > HTML 태그의 content 값
+ * - naver:  네이버 서치어드바이저 > 사이트 소유확인 > HTML 태그의 content 값
+ * 값을 채우면 <head>에 인증 메타태그가 자동으로 들어갑니다.
+ */
+export const searchVerification = {
+  google: "",
+  naver: "",
+} as const;
+
 export const company = {
   name: "위아케미칼 주식회사",
   nameEn: "WIA CHEMICAL CO., LTD.",
@@ -91,8 +114,11 @@ export const scaleStats = [
   { value: "9", unit: "종", label: "양산 적용 사례" },
 ] as const;
 
-/** 문의부터 양산까지의 진행 단계. 02 단계에만 컬러 스와치를 노출합니다. */
-export const process = [
+/**
+ * 문의부터 양산까지의 진행 단계. 02 단계에만 컬러 스와치를 노출합니다.
+ * 이름을 `process`로 두면 전역 `process.env` 접근을 가려 버리므로 쓰지 않습니다.
+ */
+export const processSteps = [
   {
     step: "01",
     title: "소재 · 라인 분석",

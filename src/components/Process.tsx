@@ -1,4 +1,4 @@
-import { process, swatchColors } from "@/lib/site";
+import { processSteps, swatchColors } from "@/lib/site";
 import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
 
@@ -24,7 +24,7 @@ export default function Process() {
         />
 
         <ol className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {process.map((item, i) => (
+          {processSteps.map((item, i) => (
             <li key={item.step}>
               <Reveal delay={i * 80} className="h-full">
                 <article className="flex h-full flex-col rounded-3xl border border-slate-200/80 bg-surface-muted p-8">
