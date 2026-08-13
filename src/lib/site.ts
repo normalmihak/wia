@@ -23,8 +23,8 @@ export const siteUrl = (
  * 값을 채우면 <head>에 인증 메타태그가 자동으로 들어갑니다.
  */
 export const searchVerification = {
-  google: "",
-  naver: "",
+  google: "eUC5-tI1s8egYo4DUWdAwIznqRDRa9NjpL7IYHpjv3A",
+  naver: "39fa519cc78181db662eb8924aa45314d9b4aba2",
 } as const;
 
 export const company = {
