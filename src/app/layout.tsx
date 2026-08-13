@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   applicationName: "위아케미칼",
   keywords: [
     "위아케미칼",
+    // 흔한 오타·표기 흔들림. '케미칼/케미컬'은 한국어에서 둘 다 널리 쓰입니다.
+    "위아케미컬",
+    "위아 케미칼",
+    "위아 케미컬",
+    "WIA케미칼",
     "WIA CHEMICAL",
     "플라스틱 도료",
     "기능성 도료",
@@ -90,7 +95,16 @@ const organizationJsonLd = {
   "@type": "Organization",
   "@id": `${siteUrl}/#organization`,
   name: company.name,
-  alternateName: [company.nameEn, "위아케미칼", "WIA CHEMICAL"],
+  // 검색엔진이 같은 회사로 묶어 인식하도록 표기 변형을 함께 선언합니다.
+  alternateName: [
+    company.nameEn,
+    "위아케미칼",
+    "위아케미컬",
+    "위아 케미칼",
+    "WIA케미칼",
+    "WIA CHEMICAL",
+    "WIA Chemical Co., Ltd.",
+  ],
   url: siteUrl,
   logo: `${siteUrl}/logo/wia-logo.png`,
   image: `${siteUrl}/og.png`,
