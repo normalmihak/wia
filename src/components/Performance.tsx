@@ -1,12 +1,13 @@
 import { Target, Drop } from "@phosphor-icons/react/dist/ssr";
 import { performance } from "@/lib/site";
 import Reveal from "./Reveal";
+import ScoreBar from "./ScoreBar";
 import SectionHeader from "./SectionHeader";
 
 const icons = [Target, Drop] as const;
 
-/** 5-point satisfaction scale → bar width. */
-const pct = (score: number) => `${(score / 5) * 100}%`;
+/** 5점 만족도 척도 → 막대 채움 비율(%). */
+const pct = (score: number) => (score / 5) * 100;
 
 export default function Performance() {
   return (
@@ -71,12 +72,11 @@ export default function Performance() {
                             {item.bar.ours.toFixed(1)}점
                           </span>
                         </div>
-                        <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-white/10">
-                          <div
-                            className="h-full rounded-full bg-[linear-gradient(90deg,#3b79e5,#5ad8f7)]"
-                            style={{ width: pct(item.bar.ours) }}
-                          />
-                        </div>
+                        <ScoreBar
+                          percent={pct(item.bar.ours)}
+                          delay={100}
+                          fillClassName="bg-[linear-gradient(90deg,#3b79e5,#5ad8f7)]"
+                        />
                       </div>
                       <div>
                         <div className="flex items-baseline justify-between text-sm">
@@ -87,12 +87,11 @@ export default function Performance() {
                             {item.bar.theirs.toFixed(1)}점
                           </span>
                         </div>
-                        <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-white/10">
-                          <div
-                            className="h-full rounded-full bg-white/30"
-                            style={{ width: pct(item.bar.theirs) }}
-                          />
-                        </div>
+                        <ScoreBar
+                          percent={pct(item.bar.theirs)}
+                          delay={260}
+                          fillClassName="bg-white/30"
+                        />
                       </div>
                     </div>
 
