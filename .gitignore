@@ -10,3 +10,11 @@ next-env.d.ts
 # Claude Code 로컬 도구 설정 (프로젝트 코드 아님)
 .claude/skills/
 .claude/settings.local.json
+
+# 이 저장소는 위아케미칼(client/wia) 전용입니다.
+# 다른 클라이언트 작업은 각자 저장소로 관리하므로 추적하지 않습니다.
+/client/*
+!/client/wia/
+/setta studio/
+/setta studio-2/
+.claude/static-server.js
