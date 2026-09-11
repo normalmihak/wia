@@ -54,7 +54,7 @@ export const company = {
     {
       label: "화성 생산공장",
       role: "생산 · 품질관리",
-      address: "경기도 화성시 만세구 마도면 화성로 687",
+      address: "경기도 화성시 만세구",
     },
   ],
 } as const;

@@ -4,8 +4,20 @@
     {
       "name": "wia-dev",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": ["--prefix", "client/wia", "run", "dev"],
       "port": 3000
+    },
+    {
+      "name": "bs-system-v1",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [".claude/static-server.js", "client/bs-system-v1", "5177"],
+      "port": 5177
+    },
+    {
+      "name": "bs-system-v2",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [".claude/static-server.js", "client/bs-system-v2", "5178"],
+      "port": 5178
     }
   ]
 }
